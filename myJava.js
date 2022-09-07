@@ -1,3 +1,9 @@
+const result1 = "Rock beats Scissors!";
+const result2 = "Paper beats Rock!";
+const result3 = "Scissors beats Paper!";
+const result4 = "Tie! Rock doesn't beat Rock!";
+const result5 = "Tie! Paper doesn't beat Paper!";
+const result6 = "Tie! Scissors doesn't beat Scissors!";
 function getComputerChoice(){
 	let rand = Math.floor(Math.random() * 3);
 	if (rand == 0){
@@ -14,12 +20,9 @@ function getComputerChoice(){
 	}
 }
 function playRound(playerSelection, computerSelection){
-	const result1 = "Rock beats Scissors!";
-	const result2 = "Paper beats Rock!";
-	const result3 = "Scissors beats Paper!";
 	if (playerSelection.toUpperCase() === "ROCK"){
 		if (computerSelection.toUpperCase() === "ROCK"){
-			return "Tie! Rock doesn't beat Rock!";
+			return result4;
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
 			return "You Lose! " + result2;
@@ -33,7 +36,7 @@ function playRound(playerSelection, computerSelection){
 			return "You Win! " + result2;
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
-			return "Tie! Paper doesn't beat Paper!";
+			return result5;
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
 			return "You Lose! " + result3;
@@ -47,7 +50,7 @@ function playRound(playerSelection, computerSelection){
 			return "You Win! " + result3;
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
-			return "Tie! Scissors doesn't beat Scissors!";
+			return result6;
 		}
 	}
 }
