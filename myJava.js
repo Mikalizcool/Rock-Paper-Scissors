@@ -29,11 +29,25 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 			return 1;
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
+			if (playerWins < 5){
+				playerWins += 1;
+				document.getElementById("playerScore").innerHTML = playerWins;
+			}
+			else if (playerWins == 5){
+				document.getElementById("result").innerHTML = "VICTORY!";
+			}
 			return 0;
 		}
 	}
 	else if (playerSelection.toUpperCase() === "PAPER"){
 		if (computerSelection.toUpperCase() === "ROCK"){
+			if (playerWins < 5){
+				playerWins += 1;
+				document.getElementById("playerScore").innerHTML = playerWins;
+			}
+			else if (playerWins == 5){
+				document.getElementById("result").innerHTML = "VICTORY!";
+			}
 			return 0;
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
@@ -48,6 +62,13 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 			return 1;
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
+			if (playerWins < 5){
+				playerWins += 1;
+				document.getElementById("playerScore").innerHTML = playerWins;
+			}
+			else if (playerWins == 5){
+				document.getElementById("result").innerHTML = "VICTORY!";
+			}
 			return 0;
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
@@ -79,9 +100,12 @@ function game(){
 		console.log("The game is a tie!");
 	}
 }
-const rockBtn = document.querySelector('#rock');
+
+const rockBtn = document.querySelector("#rock");
 rockBtn.addEventListener('click', () => playRound("rock"));
 const paperBtn = document.querySelector('#paper');
 paperBtn.addEventListener('click', () => playRound("paper"));
 const scissorsBtn = document.querySelector('#scissors');
 scissorsBtn.addEventListener('click', () => playRound("scissors"));
+const playBtn = document.querySelector("#play-again");
+playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById("playerScore").innerHTML = playerWins;});
