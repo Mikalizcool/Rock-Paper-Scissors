@@ -27,10 +27,17 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 			return 2;
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
+			if (computerWins < 5 && playerWins < 5){
+				computerWins++;
+				if (computerWins == 5){
+					document.getElementById("result").innerHTML = "COMPUTER WINS!";
+				}
+				document.getElementById("computerScore").innerHTML = computerWins;
+			}
 			return 1;
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
-			if (playerWins < 5){
+			if (playerWins < 5 && computerWins < 5){
 				playerWins += 1;
 				if (playerWins == 5){
 					document.getElementById("result").innerHTML = "VICTORY!";
@@ -42,7 +49,7 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 	}
 	else if (playerSelection.toUpperCase() === "PAPER"){
 		if (computerSelection.toUpperCase() === "ROCK"){
-			if (playerWins < 5){
+			if (playerWins < 5 && computerWins < 5){
 				playerWins += 1;
 				if (playerWins == 5){
 					document.getElementById("result").innerHTML = "VICTORY!";
@@ -58,15 +65,29 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 			return 2;
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
+			if (computerWins < 5 && playerWins < 5){
+				computerWins++;
+				if (computerWins == 5){
+					document.getElementById("result").innerHTML = "COMPUTER WINS!";
+				}
+				document.getElementById("computerScore").innerHTML = computerWins;
+			}
 			return 1;
 		}
 	}
 	else if (playerSelection.toUpperCase() === "SCISSORS"){
 		if (computerSelection.toUpperCase() === "ROCK"){
+			if (computerWins < 5 && playerWins < 5){
+				computerWins++;
+				if (computerWins == 5){
+					document.getElementById("result").innerHTML = "COMPUTER WINS!";
+				}
+				document.getElementById("computerScore").innerHTML = computerWins;
+			}
 			return 1;
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
-			if (playerWins < 5){
+			if (playerWins < 5 && computerWins < 5){
 				playerWins += 1;
 				if (playerWins == 5){
 					document.getElementById("result").innerHTML = "VICTORY!";
@@ -113,4 +134,5 @@ paperBtn.addEventListener('click', () => playRound("paper"));
 const scissorsBtn = document.querySelector('#scissors');
 scissorsBtn.addEventListener('click', () => playRound("scissors"));
 const playBtn = document.querySelector("#play-again");
-playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById("playerScore").innerHTML = playerWins; document.getElementById("result").innerHTML = "";});
+playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById("playerScore").innerHTML = playerWins; document.getElementById("result").innerHTML = "";
+	computerWins = 0; document.getElementById("computerScore").innerHTML = computerWins;});
