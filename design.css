@@ -9,12 +9,16 @@
 .flex-container-center{
 	display:flex;
 	justify-content:center;
+	margin-top: 40px;
 }
 #msg{
 	text-align: center;
 }
 #play-again{
 	visibility: hidden;
+}
+#computerMessage{
+	text-align: center;
 }
 button{
 	margin: 10px;

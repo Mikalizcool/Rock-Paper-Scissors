@@ -104,7 +104,13 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 	if (playerWins == 5 || computerWins == 5){
 		document.getElementById("play-again").style.visibility = "visible";
 	}
-	if (playerWins == 5){
+	if (playerWins == 5 && computerWins == 0){
+		document.getElementById("computerMessage").innerHTML = "You somehow managed to win every round. Please share with me your cheat software.";
+	}
+	else if (computerWins == 5 && playerWins == 0){
+		document.getElementById("computerMessage").innerHTML = "You have lost every round. Pathetic.";
+	}
+	else if (playerWins == 5){
 		document.getElementById("computerMessage").innerHTML = "You seemed to have successfully cheated. Congratulations.";
 	}
 	else if (computerWins == 5){
