@@ -19,9 +19,22 @@ function getComputerChoice(){
 		return "Scissors";
 	}
 }
-function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
+function playRound(playerSelection){
+	document.getElementById("computerRock").style.backgroundColor = "grey";
+	document.getElementById("computerPaper").style.backgroundColor = "grey";
+	document.getElementById("computerScissors").style.backgroundColor = "grey";
+	
 	let computerSelection = getComputerChoice();
 	
+	if (computerSelection.toUpperCase() === "PAPER"){
+		document.getElementById("computerPaper").style.backgroundColor = "red";
+	}
+	else if (computerSelection.toUpperCase() === "ROCK"){
+		document.getElementById("computerRock").style.backgroundColor = "red";
+	}
+	else if (computerSelection.toUpperCase() === "SCISSORS"){
+		document.getElementById("computerScissors").style.backgroundColor = "red";
+	}
 	if (playerSelection.toUpperCase() === "ROCK"){
 		if (computerSelection.toUpperCase() === "ROCK"){
 			
@@ -29,9 +42,9 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 		else if (computerSelection.toUpperCase() === "PAPER"){
 			if (computerWins < 5 && playerWins < 5){
 				computerWins++;
+				document.getElementById("computerPaper").style.backgroundColor = "red";
 				if (computerWins == 5){
 					document.getElementById("result").innerHTML = "COMPUTER WINS!";
-					
 				}
 				document.getElementById("computerScore").innerHTML = computerWins;
 			}
@@ -68,6 +81,7 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
 			if (computerWins < 5 && playerWins < 5){
 				computerWins++;
+				document.getElementById("computerScissors").style.backgroundColor = "red";
 				if (computerWins == 5){
 					document.getElementById("result").innerHTML = "COMPUTER WINS!";
 				}
@@ -80,6 +94,7 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 		if (computerSelection.toUpperCase() === "ROCK"){
 			if (computerWins < 5 && playerWins < 5){
 				computerWins++;
+				document.getElementById("computerRock").style.backgroundColor = "red";
 				if (computerWins == 5){
 					document.getElementById("result").innerHTML = "COMPUTER WINS!";
 				}
@@ -153,4 +168,5 @@ scissorsBtn.addEventListener('click', () => playRound("scissors"));
 const playBtn = document.querySelector("#play-again");
 playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById("playerScore").innerHTML = playerWins; document.getElementById("result").innerHTML = "";
 	computerWins = 0; document.getElementById("computerScore").innerHTML = computerWins; document.getElementById("play-again").style.visibility = "hidden";
-	document.getElementById("computerMessage").innerHTML = "";});
+	document.getElementById("computerMessage").innerHTML = ""; document.getElementById("computerRock").style.backgroundColor = "grey";
+	document.getElementById("computerPaper").style.backgroundColor = "grey"; document.getElementById("computerScissors").style.backgroundColor = "grey";});
