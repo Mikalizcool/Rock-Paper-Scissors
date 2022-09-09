@@ -21,6 +21,7 @@ function getComputerChoice(){
 }
 function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 	let computerSelection = getComputerChoice();
+	
 	if (playerSelection.toUpperCase() === "ROCK"){
 		if (computerSelection.toUpperCase() === "ROCK"){
 			return 2;
@@ -103,6 +104,7 @@ function game(){
 		console.log("The game is a tie!");
 	}
 }
+
 
 const rockBtn = document.querySelector("#rock");
 rockBtn.addEventListener('click', () => playRound("rock"));
