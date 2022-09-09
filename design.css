@@ -12,3 +12,6 @@
 #msg{
 	text-align: center;
 }
+#play-again{
+	visibility: hidden;
+}

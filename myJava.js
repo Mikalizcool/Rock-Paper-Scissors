@@ -24,17 +24,18 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 	
 	if (playerSelection.toUpperCase() === "ROCK"){
 		if (computerSelection.toUpperCase() === "ROCK"){
-			return 2;
+			
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
 			if (computerWins < 5 && playerWins < 5){
 				computerWins++;
 				if (computerWins == 5){
 					document.getElementById("result").innerHTML = "COMPUTER WINS!";
+					
 				}
 				document.getElementById("computerScore").innerHTML = computerWins;
 			}
-			return 1;
+			
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
 			if (playerWins < 5 && computerWins < 5){
@@ -44,7 +45,7 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 				}
 				document.getElementById("playerScore").innerHTML = playerWins;
 			}
-			return 0;
+			
 		}
 	}
 	else if (playerSelection.toUpperCase() === "PAPER"){
@@ -59,10 +60,10 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 			else if (playerWins == 5){
 				document.getElementById("result").innerHTML = "VICTORY!";
 			}
-			return 0;
+			
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
-			return 2;
+			
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
 			if (computerWins < 5 && playerWins < 5){
@@ -72,7 +73,7 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 				}
 				document.getElementById("computerScore").innerHTML = computerWins;
 			}
-			return 1;
+			
 		}
 	}
 	else if (playerSelection.toUpperCase() === "SCISSORS"){
@@ -84,7 +85,7 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 				}
 				document.getElementById("computerScore").innerHTML = computerWins;
 			}
-			return 1;
+			
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
 			if (playerWins < 5 && computerWins < 5){
@@ -94,12 +95,16 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 				}
 				document.getElementById("playerScore").innerHTML = playerWins;
 			}
-			return 0;
+			
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
-			return 2;
+			
 		}
 	}
+	if (playerWins == 5 || computerWins == 5){
+		document.getElementById("play-again").style.visibility = "visible";
+	}
+	return 0;
 }
 function game(){
 		let computerSelect = getComputerChoice();
@@ -135,4 +140,4 @@ const scissorsBtn = document.querySelector('#scissors');
 scissorsBtn.addEventListener('click', () => playRound("scissors"));
 const playBtn = document.querySelector("#play-again");
 playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById("playerScore").innerHTML = playerWins; document.getElementById("result").innerHTML = "";
-	computerWins = 0; document.getElementById("computerScore").innerHTML = computerWins;});
+	computerWins = 0; document.getElementById("computerScore").innerHTML = computerWins; document.getElementById("play-again").style.visibility = "hidden";});
