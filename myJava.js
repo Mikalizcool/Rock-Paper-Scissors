@@ -31,10 +31,10 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
 			if (playerWins < 5){
 				playerWins += 1;
+				if (playerWins == 5){
+					document.getElementById("result").innerHTML = "VICTORY!";
+				}
 				document.getElementById("playerScore").innerHTML = playerWins;
-			}
-			else if (playerWins == 5){
-				document.getElementById("result").innerHTML = "VICTORY!";
 			}
 			return 0;
 		}
@@ -43,6 +43,9 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 		if (computerSelection.toUpperCase() === "ROCK"){
 			if (playerWins < 5){
 				playerWins += 1;
+				if (playerWins == 5){
+					document.getElementById("result").innerHTML = "VICTORY!";
+				}
 				document.getElementById("playerScore").innerHTML = playerWins;
 			}
 			else if (playerWins == 5){
@@ -64,10 +67,10 @@ function playRound(playerSelection){ // 0 = win, 1 = lose, 2 = tie
 		else if (computerSelection.toUpperCase() === "PAPER"){
 			if (playerWins < 5){
 				playerWins += 1;
+				if (playerWins == 5){
+					document.getElementById("result").innerHTML = "VICTORY!";
+				}
 				document.getElementById("playerScore").innerHTML = playerWins;
-			}
-			else if (playerWins == 5){
-				document.getElementById("result").innerHTML = "VICTORY!";
 			}
 			return 0;
 		}
@@ -108,4 +111,4 @@ paperBtn.addEventListener('click', () => playRound("paper"));
 const scissorsBtn = document.querySelector('#scissors');
 scissorsBtn.addEventListener('click', () => playRound("scissors"));
 const playBtn = document.querySelector("#play-again");
-playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById("playerScore").innerHTML = playerWins;});
+playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById("playerScore").innerHTML = playerWins; document.getElementById("result").innerHTML = "";});
