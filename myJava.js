@@ -198,4 +198,4 @@ playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById
 	computerWins = 0; document.getElementById("computerScore").innerHTML = computerWins; document.getElementById("play-again").style.visibility = "hidden";
 	document.getElementById("computerMessage").innerHTML = ""; document.getElementById("computerRock").style.backgroundColor = "grey";
 	document.getElementById("computerPaper").style.backgroundColor = "grey"; document.getElementById("computerScissors").style.backgroundColor = "grey";
-	document.getElementById("winner").innerHTML = "";});
+	document.getElementById("winner").innerHTML = ""; document.getElementById("playerChoice").innerHTML = ""; document.getElementById("computerChoice").innerHTML = "";});
