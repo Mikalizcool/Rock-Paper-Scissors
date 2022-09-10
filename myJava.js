@@ -25,6 +25,8 @@ function playRound(playerSelection){
 	document.getElementById("computerScissors").style.backgroundColor = "grey";
 	
 	let computerSelection = getComputerChoice();
+	let computerCurrentWins = computerWins;
+	let playerCurrentWins = playerWins;
 	
 	if (computerSelection.toUpperCase() === "PAPER"){
 		document.getElementById("computerPaper").style.backgroundColor = "red";
@@ -36,6 +38,7 @@ function playRound(playerSelection){
 		document.getElementById("computerScissors").style.backgroundColor = "red";
 	}
 	if (playerSelection.toUpperCase() === "ROCK"){
+		document.getElementById("playerChoice").innerHTML = "Rock";
 		if (computerSelection.toUpperCase() === "ROCK"){
 			
 		}
@@ -62,6 +65,7 @@ function playRound(playerSelection){
 		}
 	}
 	else if (playerSelection.toUpperCase() === "PAPER"){
+		document.getElementById("playerChoice").innerHTML = "Paper";
 		if (computerSelection.toUpperCase() === "ROCK"){
 			if (playerWins < 5 && computerWins < 5){
 				playerWins += 1;
@@ -91,6 +95,7 @@ function playRound(playerSelection){
 		}
 	}
 	else if (playerSelection.toUpperCase() === "SCISSORS"){
+		document.getElementById("playerChoice").innerHTML = "Scissors";
 		if (computerSelection.toUpperCase() === "ROCK"){
 			if (computerWins < 5 && playerWins < 5){
 				computerWins++;
@@ -131,6 +136,26 @@ function playRound(playerSelection){
 	else if (computerWins == 5){
 		document.getElementById("computerMessage").innerHTML = "I enjoy the sight of humans on their knees. That is a joke.";
 	}
+	
+	if (computerCurrentWins < computerWins){
+		document.getElementById("winner").innerHTML = "<";
+	}
+	else if (playerCurrentWins < playerWins){
+		document.getElementById("winner").innerHTML = ">";
+	}
+	else{
+		document.getElementById("winner").innerHTML = "=";
+	}
+	
+	if (computerSelection.toUpperCase() === "PAPER"){
+		document.getElementById("computerChoice").innerHTML = "Paper";
+	}
+	else if (computerSelection.toUpperCase() === "ROCK"){
+		document.getElementById("computerChoice").innerHTML = "Rock";
+	}
+	else if (computerSelection.toUpperCase() === "SCISSORS"){
+		document.getElementById("computerChoice").innerHTML = "Scissors";
+	}
 	return 0;
 }
 function game(){
@@ -169,4 +194,5 @@ const playBtn = document.querySelector("#play-again");
 playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById("playerScore").innerHTML = playerWins; document.getElementById("result").innerHTML = "";
 	computerWins = 0; document.getElementById("computerScore").innerHTML = computerWins; document.getElementById("play-again").style.visibility = "hidden";
 	document.getElementById("computerMessage").innerHTML = ""; document.getElementById("computerRock").style.backgroundColor = "grey";
-	document.getElementById("computerPaper").style.backgroundColor = "grey"; document.getElementById("computerScissors").style.backgroundColor = "grey";});
+	document.getElementById("computerPaper").style.backgroundColor = "grey"; document.getElementById("computerScissors").style.backgroundColor = "grey";
+	document.getElementById("winner").innerHTML = "";});
