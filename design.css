@@ -1,0 +1,47 @@
+*{
+	font-family: 'Press Start 2P', cursive;
+}
+
+.flex-container{
+	display: flex;
+	
+}
+.flex-container-center{
+	display:flex;
+	justify-content:center;
+	margin-top: 40px;
+}
+#msg{
+	text-align: center;
+}
+#play-again{
+	visibility: hidden;
+}
+#computerMessage{
+	text-align: center;
+}
+button{
+	margin: 10px;
+	
+}
+
+@media only screen and (max-width: 768px) {
+	/* For mobile phones: */
+	.flex-container-buttons{
+		display:flex;
+		justify-content:center;
+		flex-direction: column;
+	}
+	
+}
+
+@media only screen and (min-width: 768px) {
+	/* For desktop: */
+	
+	.flex-container-buttons{
+		display:flex;
+		justify-content:center;
+	
+	}
+	
+}
