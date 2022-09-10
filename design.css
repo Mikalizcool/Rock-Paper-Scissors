@@ -44,6 +44,9 @@ button{
 	.flex-container{
 		display:flex;
 	}
+	#result{
+		margin:10px;
+	}
 }
 
 @media only screen and (min-width: 768px) {
