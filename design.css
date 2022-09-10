@@ -20,6 +20,15 @@
 #computerMessage{
 	text-align: center;
 }
+#computerRock{
+	background-color:grey;
+}
+#computerPaper{
+	background-color:grey;
+}
+#computerScissors{
+	background-color:grey;
+}
 button{
 	margin: 10px;
 	
