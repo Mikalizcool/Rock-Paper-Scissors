@@ -20,6 +20,9 @@ function getComputerChoice(){
 	}
 }
 function playRound(playerSelection){
+	if (playerWins == 5 || computerWins == 5){
+		return 0;
+	}
 	document.getElementById("computerRock").style.backgroundColor = "grey";
 	document.getElementById("computerPaper").style.backgroundColor = "grey";
 	document.getElementById("computerScissors").style.backgroundColor = "grey";
