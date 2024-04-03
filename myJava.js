@@ -40,84 +40,43 @@ function playRound(playerSelection){
 	else if (computerSelection.toUpperCase() === "SCISSORS"){
 		document.getElementById("computerScissors").style.backgroundColor = "red";
 	}
+
 	if (playerSelection.toUpperCase() === "ROCK"){
 		document.getElementById("playerChoice").innerHTML = "Rock";
 		if (computerSelection.toUpperCase() === "ROCK"){
 			
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
-			if (computerWins < 5 && playerWins < 5){
-				computerWins++;
-				document.getElementById("computerPaper").style.backgroundColor = "red";
-				if (computerWins == 5){
-					document.getElementById("result").innerHTML = "COMPUTER WINS!";
-				}
-				document.getElementById("computerScore").innerHTML = computerWins;
-			}
+			computerWinsRound();
 			
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
-			if (playerWins < 5 && computerWins < 5){
-				playerWins += 1;
-				if (playerWins == 5){
-					document.getElementById("result").innerHTML = "VICTORY!";
-				}
-				document.getElementById("playerScore").innerHTML = playerWins;
-			}
+			playerWinsRound();
 			
 		}
 	}
 	else if (playerSelection.toUpperCase() === "PAPER"){
 		document.getElementById("playerChoice").innerHTML = "Paper";
 		if (computerSelection.toUpperCase() === "ROCK"){
-			if (playerWins < 5 && computerWins < 5){
-				playerWins += 1;
-				if (playerWins == 5){
-					document.getElementById("result").innerHTML = "VICTORY!";
-				}
-				document.getElementById("playerScore").innerHTML = playerWins;
-			}
-			else if (playerWins == 5){
-				document.getElementById("result").innerHTML = "VICTORY!";
-			}
+			playerWinsRound();
 			
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
 			
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
-			if (computerWins < 5 && playerWins < 5){
-				computerWins++;
-				document.getElementById("computerScissors").style.backgroundColor = "red";
-				if (computerWins == 5){
-					document.getElementById("result").innerHTML = "COMPUTER WINS!";
-				}
-				document.getElementById("computerScore").innerHTML = computerWins;
-			}
+			computerWinsRound();
 			
 		}
 	}
 	else if (playerSelection.toUpperCase() === "SCISSORS"){
 		document.getElementById("playerChoice").innerHTML = "Scissors";
 		if (computerSelection.toUpperCase() === "ROCK"){
-			if (computerWins < 5 && playerWins < 5){
-				computerWins++;
-				document.getElementById("computerRock").style.backgroundColor = "red";
-				if (computerWins == 5){
-					document.getElementById("result").innerHTML = "COMPUTER WINS!";
-				}
-				document.getElementById("computerScore").innerHTML = computerWins;
-			}
+			computerWinsRound();
 			
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
-			if (playerWins < 5 && computerWins < 5){
-				playerWins += 1;
-				if (playerWins == 5){
-					document.getElementById("result").innerHTML = "VICTORY!";
-				}
-				document.getElementById("playerScore").innerHTML = playerWins;
-			}
+			playerWinsRound();
 			
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
@@ -160,6 +119,30 @@ function playRound(playerSelection){
 		document.getElementById("computerChoice").innerHTML = "Scissors";
 	}
 	return 0;
+}
+function playerWinsRound(){
+	if (playerWins < 5 && computerWins < 5){
+		playerWins += 1;
+		if (playerWins == 5){
+			document.getElementById("result").innerHTML = "VICTORY!";
+		}
+		document.getElementById("playerScore").innerHTML = playerWins;
+	}
+	else if (playerWins == 5){
+		document.getElementById("result").innerHTML = "VICTORY!";
+	}
+}
+function computerWinsRound(){
+	if (computerWins < 5 && playerWins < 5){
+		computerWins++;
+		if (computerWins == 5){
+			document.getElementById("result").innerHTML = "COMPUTER WINS!";
+		}
+		document.getElementById("computerScore").innerHTML = computerWins;
+	}
+	else if (computerWins == 5){
+		document.getElementById("result").innerHTML = "COMPUTER WINS!"
+	}
 }
 function game(){
 		let computerSelect = getComputerChoice();
