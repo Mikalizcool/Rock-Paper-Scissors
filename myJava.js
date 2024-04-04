@@ -122,6 +122,11 @@ function playRound(playerSelection){
 }
 function playerWinsRound(){
 	if (playerWins < 5 && computerWins < 5){
+		var image = document.getElementById("computerimage");
+		image.classList.add('shake');
+		image.addEventListener('animationend', function() {
+            image.classList.remove('shake');
+        }, { once: true });
 		playerWins += 1;
 		if (playerWins == 5){
 			document.getElementById("result").innerHTML = "VICTORY!";
@@ -134,6 +139,11 @@ function playerWinsRound(){
 }
 function computerWinsRound(){
 	if (computerWins < 5 && playerWins < 5){
+		var image = document.getElementById("playerimage");
+		image.classList.add('shake');
+		image.addEventListener('animationend', function() {
+            image.classList.remove('shake');
+        }, { once: true });
 		computerWins++;
 		if (computerWins == 5){
 			document.getElementById("result").innerHTML = "COMPUTER WINS!";
