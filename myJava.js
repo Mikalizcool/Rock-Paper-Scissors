@@ -144,7 +144,7 @@ function computerWinsRound(){
 		image.addEventListener('animationend', function() {
             image.classList.remove('shake');
         }, { once: true });
-		computerWins++;
+		computerWins+=1;
 		if (computerWins == 5){
 			document.getElementById("result").innerHTML = "COMPUTER WINS!";
 		}
@@ -154,31 +154,6 @@ function computerWinsRound(){
 		document.getElementById("result").innerHTML = "COMPUTER WINS!"
 	}
 }
-function game(){
-		let computerSelect = getComputerChoice();
-		let result = playRound(playerSelect, computerSelect);
-		if (result == 0){
-			playerWins ++;
-			console.log("You win the round!");
-		}
-		else if (result == 1){
-			computerWins ++;
-			console.log("The computer wins the round!");
-		}
-		else if (result == 2){
-			console.log("It's a tie!");
-		}
-	if (playerWins > computerWins){
-		console.log("You win!");
-	}
-	else if (playerWins < computerWins){
-		console.log("The computer wins!");
-	}
-	else{
-		console.log("The game is a tie!");
-	}
-}
-
 
 const rockBtn = document.querySelector("#rock");
 rockBtn.addEventListener('click', () => playRound("rock"));
@@ -191,4 +166,5 @@ playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById
 	computerWins = 0; document.getElementById("computerScore").innerHTML = computerWins; document.getElementById("play-again").style.visibility = "hidden";
 	document.getElementById("computerMessage").innerHTML = ""; document.getElementById("computerRock").style.backgroundColor = "grey";
 	document.getElementById("computerPaper").style.backgroundColor = "grey"; document.getElementById("computerScissors").style.backgroundColor = "grey";
-	document.getElementById("winner").innerHTML = ""; document.getElementById("playerChoice").innerHTML = ""; document.getElementById("computerChoice").innerHTML = "";});
+	document.getElementById("winner").innerHTML = ""; document.getElementById("playerChoice").innerHTML = ""; document.getElementById("computerChoice").innerHTML = "";
+	document.getElementById("msg").innerHTML = "I CHALLENGE YOU TO A GAME OF ROCK PAPER SCISSORS, HUMAN."});
