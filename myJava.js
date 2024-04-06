@@ -1,9 +1,3 @@
-const result1 = "Rock beats Scissors!";
-const result2 = "Paper beats Rock!";
-const result3 = "Scissors beats Paper!";
-const result4 = "Tie! Rock doesn't beat Rock!";
-const result5 = "Tie! Paper doesn't beat Paper!";
-const result6 = "Tie! Scissors doesn't beat Scissors!";
 let playerWins = 0;
 let computerWins = 0;
 let playerChoice = "";
