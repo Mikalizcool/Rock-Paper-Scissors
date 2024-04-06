@@ -137,12 +137,11 @@ function playerWinsRound(){
         }, { once: true });
 		playerWins += 1;
 		if (playerWins == 5){
-			//document.getElementById("result").innerHTML = "VICTORY!";
+			document.getElementById("msg").innerHTML = "VICTORY!";
 		}
 		document.getElementById("playerScore").innerHTML = playerWins;
 	}
 	else if (playerWins == 5){
-		//document.getElementById("result").innerHTML = "VICTORY!";
 		document.getElementById("msg").innerHTML = "VICTORY!";
 	}
 }
@@ -156,12 +155,11 @@ function computerWinsRound(){
         }, { once: true });
 		computerWins+=1;
 		if (computerWins == 5){
-			//document.getElementById("result").innerHTML = "COMPUTER WINS!";
+			document.getElementById("msg").innerHTML = "DEFEAT!";
 		}
 		document.getElementById("computerScore").innerHTML = computerWins;
 	}
 	else if (computerWins == 5){
-		//document.getElementById("result").innerHTML = "COMPUTER WINS!";
 		document.getElementById("msg").innerHTML = "DEFEAT!";
 	}
 }
