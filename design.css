@@ -39,6 +39,11 @@ display: flex;
 	justify-content:center;
 	margin-top: 40px;
 }
+
+.message-container{
+	display: flex;
+	justify-content: center;
+}
 .playerStance{
 	display: flex;
 	justify-content: flex-end;
@@ -117,6 +122,7 @@ display: flex;
 	.flex-container{
 		display:flex;
 	}
+	
 	#result{
 		margin:10px;
 	}

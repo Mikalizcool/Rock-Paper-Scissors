@@ -6,6 +6,9 @@ const result5 = "Tie! Paper doesn't beat Paper!";
 const result6 = "Tie! Scissors doesn't beat Scissors!";
 let playerWins = 0;
 let computerWins = 0;
+let playerChoice = "";
+let winner = "";
+let computerChoice = "";
 
 function getComputerChoice(){
 	let rand = Math.floor(Math.random() * 3);
@@ -28,6 +31,7 @@ function playRound(playerSelection){
 	document.getElementById("computerScissors").style.backgroundColor = "grey";
 	
 	let computerSelection = getComputerChoice();
+	computerChoice = computerSelection;
 	let computerCurrentWins = computerWins;
 	let playerCurrentWins = playerWins;
 	
@@ -42,9 +46,10 @@ function playRound(playerSelection){
 	}
 
 	if (playerSelection.toUpperCase() === "ROCK"){
-		document.getElementById("playerChoice").innerHTML = "Rock";
+		//document.getElementById("playerChoice").innerHTML = "Rock";
+		playerChoice = "Rock";
 		if (computerSelection.toUpperCase() === "ROCK"){
-			
+			tieRound();
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
 			computerWinsRound();
@@ -56,13 +61,14 @@ function playRound(playerSelection){
 		}
 	}
 	else if (playerSelection.toUpperCase() === "PAPER"){
-		document.getElementById("playerChoice").innerHTML = "Paper";
+		//document.getElementById("playerChoice").innerHTML = "Paper";
+		playerChoice = "Paper";
 		if (computerSelection.toUpperCase() === "ROCK"){
 			playerWinsRound();
 			
 		}
 		else if (computerSelection.toUpperCase() === "PAPER"){
-			
+			tieRound();
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
 			computerWinsRound();
@@ -70,7 +76,8 @@ function playRound(playerSelection){
 		}
 	}
 	else if (playerSelection.toUpperCase() === "SCISSORS"){
-		document.getElementById("playerChoice").innerHTML = "Scissors";
+		//document.getElementById("playerChoice").innerHTML = "Scissors";
+		playerChoice = "Scissors";
 		if (computerSelection.toUpperCase() === "ROCK"){
 			computerWinsRound();
 			
@@ -80,7 +87,7 @@ function playRound(playerSelection){
 			
 		}
 		else if (computerSelection.toUpperCase() === "SCISSORS"){
-			
+			tieRound();
 		}
 	}
 	if (playerWins == 5 || computerWins == 5){
@@ -122,6 +129,7 @@ function playRound(playerSelection){
 }
 function playerWinsRound(){
 	if (playerWins < 5 && computerWins < 5){
+		document.getElementById("msg").innerHTML = playerChoice + " > " + computerChoice;
 		var image = document.getElementById("computerimage");
 		image.classList.add('shake');
 		image.addEventListener('animationend', function() {
@@ -129,16 +137,18 @@ function playerWinsRound(){
         }, { once: true });
 		playerWins += 1;
 		if (playerWins == 5){
-			document.getElementById("result").innerHTML = "VICTORY!";
+			//document.getElementById("result").innerHTML = "VICTORY!";
 		}
 		document.getElementById("playerScore").innerHTML = playerWins;
 	}
 	else if (playerWins == 5){
-		document.getElementById("result").innerHTML = "VICTORY!";
+		//document.getElementById("result").innerHTML = "VICTORY!";
+		document.getElementById("msg").innerHTML = "VICTORY!";
 	}
 }
 function computerWinsRound(){
 	if (computerWins < 5 && playerWins < 5){
+		document.getElementById("msg").innerHTML = playerChoice + " &lt " + computerChoice;
 		var image = document.getElementById("playerimage");
 		image.classList.add('shake');
 		image.addEventListener('animationend', function() {
@@ -146,13 +156,17 @@ function computerWinsRound(){
         }, { once: true });
 		computerWins+=1;
 		if (computerWins == 5){
-			document.getElementById("result").innerHTML = "COMPUTER WINS!";
+			//document.getElementById("result").innerHTML = "COMPUTER WINS!";
 		}
 		document.getElementById("computerScore").innerHTML = computerWins;
 	}
 	else if (computerWins == 5){
-		document.getElementById("result").innerHTML = "COMPUTER WINS!"
+		//document.getElementById("result").innerHTML = "COMPUTER WINS!";
+		document.getElementById("msg").innerHTML = "DEFEAT!";
 	}
+}
+function tieRound(){
+	document.getElementById("msg").innerHTML = playerChoice + " = " + computerChoice;
 }
 
 const rockBtn = document.querySelector("#rock");
@@ -162,9 +176,9 @@ paperBtn.addEventListener('click', () => playRound("paper"));
 const scissorsBtn = document.querySelector('#scissors');
 scissorsBtn.addEventListener('click', () => playRound("scissors"));
 const playBtn = document.querySelector("#play-again");
-playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById("playerScore").innerHTML = playerWins; document.getElementById("result").innerHTML = "";
+playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById("playerScore").innerHTML = playerWins; //document.getElementById("result").innerHTML = "";
 	computerWins = 0; document.getElementById("computerScore").innerHTML = computerWins; document.getElementById("play-again").style.visibility = "hidden";
 	document.getElementById("computerMessage").innerHTML = ""; document.getElementById("computerRock").style.backgroundColor = "grey";
 	document.getElementById("computerPaper").style.backgroundColor = "grey"; document.getElementById("computerScissors").style.backgroundColor = "grey";
-	document.getElementById("winner").innerHTML = ""; document.getElementById("playerChoice").innerHTML = ""; document.getElementById("computerChoice").innerHTML = "";
+	//document.getElementById("winner").innerHTML = ""; document.getElementById("playerChoice").innerHTML = ""; document.getElementById("computerChoice").innerHTML = "";
 	document.getElementById("msg").innerHTML = "I CHALLENGE YOU TO A GAME OF ROCK PAPER SCISSORS, HUMAN."});

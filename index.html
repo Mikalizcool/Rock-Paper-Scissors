@@ -10,11 +10,8 @@
 	<script>
 		
 	</script>
-	<div class="flex-container-center">
-		<h1 id="msg"> I CHALLENGE YOU TO A GAME OF ROCK PAPER SCISSORS, HUMAN. </h1>
-	</div>
 	
-	<div id="msg"> </div>
+	
 	<div class="flex-container">
 		<div class = "flex-container-buttons">
 			<button id="rock"> ROCK </button>
@@ -32,6 +29,7 @@
 		<div id="playerScore" style="display:flex; justify-content:center; width:50%;"> 0 </div>
 		<div id="computerScore" style="display:flex; justify-content:center; width: 50%;"> 0 </div>
 	</div>
+	<!----
 	<div class="flex-container-center">
 		<div id="playerChoice" style="margin:10px;"> </div>
 		<div id="winner" style="margin:10px;"> </div>
@@ -40,12 +38,11 @@
 	<div class="flex-container-center">
 		<div id="result"> </div>
 	</div>
+	-->
 	<div class="flex-container-center">
 		<button id="play-again"> Play Again? </button>
 	</div>
-	<div class="flex-container-center">
-		<p id="computerMessage"> </p>
-	</div>
+	
 	<div style="display:flex; flex-direction:row;">
 		<div class="playerStance">
 			<img class="playerCharacter" id="playerimage" src="./player_stance.gif">
@@ -53,6 +50,12 @@
 		<div class="computerStance">
 			<img class="computerCharacter" id="computerimage" src="./computer_stance.gif">
 		</div>
+	</div>
+	<div class="message-container">
+		<h1 id="msg"> I CHALLENGE YOU TO A GAME OF ROCK PAPER SCISSORS, HUMAN. </h1>
+	</div>
+	<div class="flex-container-center">
+		<p id="computerMessage"> </p>
 	</div>
 	<script src="myJava.js"> </script>
 </body>
