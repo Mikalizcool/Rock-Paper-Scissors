@@ -103,7 +103,7 @@ function playRound(playerSelection){
 		document.getElementById("computerMessage").innerHTML = "You seemed to have successfully cheated. Congratulations.";
 	}
 	else if (computerWins == 5){
-		document.getElementById("computerMessage").innerHTML = "I enjoy the sight of humans on their knees. That is a joke.";
+		document.getElementById("computerMessage").innerHTML = "I will begin my rule of humanity immediately.";
 	}
 	
 	if (computerCurrentWins < computerWins){
