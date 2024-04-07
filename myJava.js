@@ -3,7 +3,8 @@ let computerWins = 0;
 let playerChoice = "";
 let winner = "";
 let computerChoice = "";
-
+var computerImage = document.getElementById("computerimage");
+var playerImage = document.getElementById("playerimage");
 function getComputerChoice(){
 	let rand = Math.floor(Math.random() * 3);
 	if (rand == 0){
@@ -131,6 +132,8 @@ function playerWinsRound(){
         }, { once: true });
 		playerWins += 1;
 		if (playerWins == 5){
+			playerImage.src = "victory-player.png";
+			computerImage.src = "defeat-computer.png";
 			document.getElementById("msg").innerHTML = "VICTORY!";
 		}
 		document.getElementById("playerScore").innerHTML = playerWins;
@@ -149,6 +152,8 @@ function computerWinsRound(){
         }, { once: true });
 		computerWins+=1;
 		if (computerWins == 5){
+			computerImage.src = "victory-computer.png";
+			playerImage.src = "defeat-player.png";
 			document.getElementById("msg").innerHTML = "DEFEAT!";
 		}
 		document.getElementById("computerScore").innerHTML = computerWins;
@@ -173,4 +178,5 @@ playBtn.addEventListener('click', () => {playerWins = 0; document.getElementById
 	document.getElementById("computerMessage").innerHTML = ""; document.getElementById("computerRock").style.backgroundColor = "grey";
 	document.getElementById("computerPaper").style.backgroundColor = "grey"; document.getElementById("computerScissors").style.backgroundColor = "grey";
 	//document.getElementById("winner").innerHTML = ""; document.getElementById("playerChoice").innerHTML = ""; document.getElementById("computerChoice").innerHTML = "";
-	document.getElementById("msg").innerHTML = "I CHALLENGE YOU TO A GAME OF ROCK PAPER SCISSORS, HUMAN."});
+	document.getElementById("msg").innerHTML = "I CHALLENGE YOU TO A GAME OF ROCK PAPER SCISSORS, HUMAN."; computerImage.src = "computer_stance.gif";
+	playerImage.src = "player_stance.gif";});
