@@ -89,16 +89,16 @@ function playRound(playerSelection){
 		document.getElementById("play-again").style.visibility = "visible";
 	}
 	if (playerWins == 5 && computerWins == 0){
-		document.getElementById("computerMessage").innerHTML = "You somehow managed to win every round. Please share with me your cheat software.";
+		document.getElementById("computerMessage").innerHTML = "After winning every round against the machine, you became the most popular rock star on the planet.";
 	}
 	else if (computerWins == 5 && playerWins == 0){
-		document.getElementById("computerMessage").innerHTML = "You have lost every round. Pathetic.";
+		document.getElementById("computerMessage").innerHTML = "After losing every round to the machine, you never again rose from your humiliation.";
 	}
 	else if (playerWins == 5){
-		document.getElementById("computerMessage").innerHTML = "You seemed to have successfully cheated. Congratulations.";
+		document.getElementById("computerMessage").innerHTML = "After defeating the machine, you became a rock star. Congratulations.";
 	}
 	else if (computerWins == 5){
-		document.getElementById("computerMessage").innerHTML = "I will begin my rule of humanity immediately.";
+		document.getElementById("computerMessage").innerHTML = "After losing to the machine, the machine took over Earth and became a rock star.";
 	}
 	
 	if (computerCurrentWins < computerWins){
