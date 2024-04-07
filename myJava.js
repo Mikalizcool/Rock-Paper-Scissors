@@ -18,7 +18,7 @@ function getComputerChoice(){
 	}
 }
 function playRound(playerSelection){
-	if (playerWins == 5 || computerWins == 5){
+	if (playerWins == 3 || computerWins == 3){
 		return 0;
 	}
 	document.getElementById("computerRock").style.backgroundColor = "grey";
@@ -85,19 +85,19 @@ function playRound(playerSelection){
 			tieRound();
 		}
 	}
-	if (playerWins == 5 || computerWins == 5){
+	if (playerWins == 3 || computerWins == 3){
 		document.getElementById("play-again").style.visibility = "visible";
 	}
-	if (playerWins == 5 && computerWins == 0){
+	if (playerWins == 3 && computerWins == 0){
 		document.getElementById("computerMessage").innerHTML = "After winning every round against the machine, you became the most popular rock star on the planet.";
 	}
-	else if (computerWins == 5 && playerWins == 0){
+	else if (computerWins == 3 && playerWins == 0){
 		document.getElementById("computerMessage").innerHTML = "After losing every round to the machine, you never again rose from your humiliation.";
 	}
-	else if (playerWins == 5){
+	else if (playerWins == 3){
 		document.getElementById("computerMessage").innerHTML = "After defeating the machine, you became a rock star. Congratulations.";
 	}
-	else if (computerWins == 5){
+	else if (computerWins == 3){
 		document.getElementById("computerMessage").innerHTML = "After losing to the machine, the machine took over Earth and became a rock star.";
 	}
 	
@@ -123,7 +123,7 @@ function playRound(playerSelection){
 	return 0;
 }
 function playerWinsRound(){
-	if (playerWins < 5 && computerWins < 5){
+	if (playerWins < 3 && computerWins < 3){
 		document.getElementById("msg").innerHTML = playerChoice + " > " + computerChoice;
 		var image = document.getElementById("computerimage");
 		image.classList.add('shake');
@@ -131,19 +131,19 @@ function playerWinsRound(){
             image.classList.remove('shake');
         }, { once: true });
 		playerWins += 1;
-		if (playerWins == 5){
+		if (playerWins == 3){
 			playerImage.src = "victory-player.png";
 			computerImage.src = "defeat-computer.png";
 			document.getElementById("msg").innerHTML = "VICTORY!";
 		}
 		document.getElementById("playerScore").innerHTML = playerWins;
 	}
-	else if (playerWins == 5){
+	else if (playerWins == 3){
 		document.getElementById("msg").innerHTML = "VICTORY!";
 	}
 }
 function computerWinsRound(){
-	if (computerWins < 5 && playerWins < 5){
+	if (computerWins < 3 && playerWins < 3){
 		document.getElementById("msg").innerHTML = playerChoice + " &lt " + computerChoice;
 		var image = document.getElementById("playerimage");
 		image.classList.add('shake');
@@ -151,14 +151,14 @@ function computerWinsRound(){
             image.classList.remove('shake');
         }, { once: true });
 		computerWins+=1;
-		if (computerWins == 5){
+		if (computerWins == 3){
 			computerImage.src = "victory-computer.png";
 			playerImage.src = "defeat-player.png";
 			document.getElementById("msg").innerHTML = "DEFEAT!";
 		}
 		document.getElementById("computerScore").innerHTML = computerWins;
 	}
-	else if (computerWins == 5){
+	else if (computerWins == 3){
 		document.getElementById("msg").innerHTML = "DEFEAT!";
 	}
 }
